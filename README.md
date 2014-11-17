@@ -1,6 +1,6 @@
 tools
 =====
 
-useful scripts to run with crond
+useful web scripts for various things
 
 server status demo: http://jasonb.io/tools/server_status/
