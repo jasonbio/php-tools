@@ -107,7 +107,7 @@ function serverStatus() {
 
 	$myFile = "results.php";
 	$fh = fopen($myFile, 'w') or die("can't open file");
-	$stringData = $initial.'<div class="server" style="margin-right: 10px;border: none!important;margin-top: 45px;z-index: 1;">
+	$stringData = $initial.'<div class="server" style="margin-right: 10px;border: none!important;margin-top: 45px;z-index: 1;width: 740px;">
 			<table class="table table-striped table-condensed" style="border: 1px #2C2C2C solid !important;">
 				<thead style="color: #7A7A7A!important;background: #000000!important;">
 					<tr>
