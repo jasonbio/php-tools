@@ -1,5 +1,7 @@
 <?php
 
+// prevents more than one process of the same script at a time.
+// useful for cronjobs and if hitting script quickly
 if (file_exists('/tmp/script2.lock')) {
 
   	exit();
@@ -19,7 +21,7 @@ if (file_exists('/tmp/script2.lock')) {
 	if ($result > 0) {
 	
 		// we don't lock the script until the actual process of putting mails in the queue happens
-		file_put_contents('/tmp/script3.lock','');
+		file_put_contents('/tmp/script2.lock','');
 		
 		include 'config.php';
 		// number of emails to put in the queue before stopping
