@@ -2,7 +2,7 @@
 
 // prevents more than one process of the same script at a time.
 // useful for cronjobs and if hitting script quickly
-if (file_exists('/tmp/script2.lock')) {
+if (file_exists('/tmp/script.lock')) {
   exit();
 }
 
