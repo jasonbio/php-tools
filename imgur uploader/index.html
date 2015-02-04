@@ -1,0 +1,39 @@
+<html>
+<head>
+     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.min.js"></script>
+</head>
+<body>
+<form id="imgurupload" class="imgurupload" action="" method="post" enctype="multipart/form-data" style="margin-left: auto;margin-right: auto;text-align: center;width: 530px;">
+    <p>Upload an image to imgur</p>
+    <input name="img" id="img" class="img" type="file" size="55" value="" placeholder="browse"> &nbsp; <input type="submit" value="upload">
+</form>
+<div id="imgresult2">
+</div>
+<script type="text/javascript">
+    $("#imgurupload").submit(function() {
+        var data = new FormData();
+        jQuery.each($("#img")[0].files, function(i, file) {
+            data.append("file-"+i, file);
+        });
+        $("#imgresult2").html("");
+        var imgval = $("#img").val();
+        if (imgval == "" || imgval == null) {
+            $("#imgresult2").html("please upload an image");
+            return false;
+        }
+        $.ajax({
+            url: "imgur-upload.php",
+            data: data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            type: "POST",
+            success: function(data) {
+                $("#imgresult2").html(data);
+            }
+        });
+        return false;
+    });
+</script>
+</body>
+</html>
